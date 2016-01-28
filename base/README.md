@@ -1,4 +1,7 @@
 # Internal base docker image
+
+[![](https://badge.imagelayers.io/livingobjects/base:latest.svg)](https://imagelayers.io/?images=livingobjects/base:latest 'Get your own badge on imagelayers.io')
+
 Alpine based with: 
  * **runit** for services management
  * **wget**
