@@ -1,4 +1,7 @@
 # Jre8 image
+
+[![](https://badge.imagelayers.io/livingobjects/jre8:latest.svg)](https://imagelayers.io/?images=livingobjects/jre8:latest 'Get your own badge on imagelayers.io')
+
 Based on livingobjects/base we add a JRE
 
 `JAVA_HOME` is set
