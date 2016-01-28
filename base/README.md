@@ -15,7 +15,7 @@ Done automatically by docker hub
     docker push livingobjects/base
 
 
-## Test : 
+## Test
 
     docker run -d livingobjects/base /bin/bash
 
