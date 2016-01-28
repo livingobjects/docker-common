@@ -1,0 +1,6 @@
+**/target/
+idea
+*.iml
+build_all
+tree
+clean_all
