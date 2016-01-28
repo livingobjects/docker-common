@@ -1,0 +1,2 @@
+#!/bin/sh
+exec kill `ps aux | grep neo4j | grep java | awk '{print $2}'`
