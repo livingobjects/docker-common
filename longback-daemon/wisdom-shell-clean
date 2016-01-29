@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -R /services/longback-daemon/runtime/shell
+
+sv start /etc/sv/longackd
