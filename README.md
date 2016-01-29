@@ -1,4 +1,6 @@
 # Docker Common
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://tldrlegal.com/license/mit-license#summary)
+
 LivingObjects base images
 
 ## Images
