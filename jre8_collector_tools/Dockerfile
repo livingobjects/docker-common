@@ -6,6 +6,8 @@ ADD run-one /usr/bin/run-one
 RUN chmod +x /usr/bin/run-one && \
 	apk update && \
     apk add tcpdump net-snmp-tools libcap findutils coreutils && \
+    rm -rf /var/cache/apk/* && \
+
 
     # Add capacity for non root users to access tcpdump
     addgroup pcap  && \
