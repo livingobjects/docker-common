@@ -24,6 +24,7 @@ RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup && \
 	echo "Europe/Prague" > /etc/timezone && \
 
 # Create lo-daemon
+    groupadd -g 10000 lo-logger && \
     groupadd -g 999 lo-daemon && \
     useradd lo-daemon --uid 999 --gid 999 --system --home /services/ --shell /bin/bash && \
     gpasswd -a lo-daemon lo-logger
