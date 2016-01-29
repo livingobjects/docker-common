@@ -14,8 +14,8 @@ RUN chmod +x /usr/bin/run-one && \
 
     chgrp pcap /usr/sbin/tcpdump  && \
     chmod 750 /usr/sbin/tcpdump  && \
-
-    setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump  && \
+# setcap not possible on docker hub, it appears that they are using aufs as storage backend
+#    setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump  && \
     ln -s /usr/sbin/tcpdump /usr/local/bin/tcpdump  && \
 
 
