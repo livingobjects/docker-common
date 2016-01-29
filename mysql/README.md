@@ -1,4 +1,7 @@
 # Images Docker MySQL
+
+[![](https://badge.imagelayers.io/livingobjects/mysql:latest.svg)](https://imagelayers.io/?images=livingobjects/mysql:latest 'Get your own badge on imagelayers.io')
+
 Mysql 5.6 debian based
 
 ## Configuration
