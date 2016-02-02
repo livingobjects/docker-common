@@ -34,7 +34,7 @@ RUN mkdir -p /services/longback-daemon && \
 
 
 # Parameterize environment
-ADD services /
+COPY services /services
 RUN chmod 755 /services/longback-daemon/run.sh && \
     ln -s /services/longback-daemon/run.sh /services/longbackd && \
     ln -s /services/longback-daemon/run.sh /services/run.sh && \
