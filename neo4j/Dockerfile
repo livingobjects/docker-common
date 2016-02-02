@@ -2,20 +2,19 @@ FROM livingobjects/jre8:8u71
 
 ENV NEO4J_VERSION 2.3.2
 
+COPY neo4j/* /opt/neo4j_files/
 # Install Neo4j Community
 RUN wget --content-disposition http://neo4j.com/artifact.php\?name\=neo4j-community-${NEO4J_VERSION}-unix.tar.gz && \
     mkdir -p /opt && \
     tar xvfz neo4j-community-${NEO4J_VERSION}-unix.tar.gz -C /opt && \
     ln -s /opt/neo4j-community-${NEO4J_VERSION} /opt/neo4j && \
-    rm neo4j-community-${NEO4J_VERSION}-unix.tar.gz
-
-ADD conf/* /opt/neo4j/conf/
-
-COPY neo4j-lo-extensions-1.1.jar /opt/neo4j/plugins/
+    cp -r /opt/neo4j_files/* /opt/neo4j/ && \
+    rm -rf neo4j-community-${NEO4J_VERSION}-unix.tar.gz /opt/neo4j_files/ && \
 
 # Chown all
-RUN chown lo-daemon. -R /opt/neo4j/ && \
-    mkdir -p /opt/neo4j/logs/
+    mkdir -p /opt/neo4j/logs/ && \
+    chown lo-daemon. -R /opt/neo4j/
+
 
 # Install services
 ADD services /etc/sv
