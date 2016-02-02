@@ -34,22 +34,19 @@ RUN mkdir -p /services/longback-daemon && \
 
 
 # Parameterize environment
-ADD run.sh /services/longback-daemon/
+ADD services /
 RUN chmod 755 /services/longback-daemon/run.sh && \
     ln -s /services/longback-daemon/run.sh /services/longbackd && \
-    ln -s /services/longback-daemon/run.sh /services/run.sh
+    ln -s /services/longback-daemon/run.sh /services/run.sh && \
 
-ADD conf /services/longback-daemon/conf
-ADD wisdom-templates /services/longback-daemon/templates
-
-RUN chmod 755 /services/longback-daemon/conf/ && \
+    chmod 755 /services/longback-daemon/conf/ && \
     chmod 640 /services/longback-daemon/conf/* && \
 # Chown all
-    chown lo-daemon.lo-daemon -R /services/
+    chown lo-daemon.lo-daemon -R /services/ && \
 
 # Add util script to run wisdom shell
-ADD wisdom-shell /usr/bin/
-ADD wisdom-shell-clean /usr/bin/
+    ln -s /services/wisdom-shell /usr/bin/ && \
+    ln -s /services/wisdom-shell-clean /usr/bin/
 
 EXPOSE 9000
 
