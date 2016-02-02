@@ -8,12 +8,8 @@ RUN apk --update add nginx && \
 VOLUME ["/etc/nginx/certs", "/var/log/nginx"]
 
 # Define working directory.
-WORKDIR /etc/nginx
 RUN rm -rf /etc/nginx/conf.d/*.conf
-ADD proxy.conf /etc/nginx/proxy.conf
-ADD nginx.conf /etc/nginx/nginx.conf
-ADD services /etc/sv
+COPY etc /etc/
 
 # Expose ports.
-EXPOSE 80
-EXPOSE 443
+EXPOSE 80 443
