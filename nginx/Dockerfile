@@ -1,4 +1,4 @@
-FROM livingobjects/base:3.3
+FROM livingobjects/base:3.3_1
 
 RUN apk --update add nginx && \
     chown -R nginx:nginx /var/lib/nginx/ && \
