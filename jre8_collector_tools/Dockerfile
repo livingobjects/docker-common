@@ -1,7 +1,5 @@
 FROM livingobjects/jre8:8u77
 
-ADD run-one /usr/bin/run-one
-
 # Update dependency
 RUN chmod +x /usr/bin/run-one && \
     apk --update add tcpdump net-snmp-tools libcap findutils coreutils && \
