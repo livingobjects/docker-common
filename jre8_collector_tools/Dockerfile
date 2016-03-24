@@ -1,4 +1,4 @@
-FROM livingobjects/jre8:8u71
+FROM livingobjects/jre8:8u77
 
 ADD run-one /usr/bin/run-one
 
