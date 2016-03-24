@@ -1,5 +1,7 @@
 FROM alpine:3.3
 
+ADD run-one /usr/bin/run-one
+
 RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories && \
     echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
 
