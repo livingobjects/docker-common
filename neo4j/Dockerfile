@@ -1,6 +1,6 @@
 FROM livingobjects/jre8:8u77
 
-ENV NEO4J_VERSION 2.3.3
+ENV NEO4J_VERSION 2.3.2
 
 COPY neo4j /opt/neo4j_files/
 # Install Neo4j Community
