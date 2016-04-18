@@ -1,8 +1,11 @@
 FROM livingobjects/base:3.3_1
 
-RUN apk --update add nginx && \
-    chown -R nginx:nginx /var/lib/nginx/ && \
-    rm -rf /var/cache/apk/*
+COPY    APKBUILD /home/packager/APKBUILD
+COPY    install.sh /home/packager/install.sh
+
+RUN     chmod u+x /home/packager/install.sh && \
+        apk -U upgrade && \
+        /home/packager/install.sh
 
 # Define mountable directories.
 VOLUME ["/etc/nginx/certs", "/var/log/nginx"]
