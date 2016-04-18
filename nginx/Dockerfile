@@ -5,7 +5,9 @@ COPY    install.sh /home/packager/install.sh
 
 RUN     chmod u+x /home/packager/install.sh && \
         apk -U upgrade && \
-        /home/packager/install.sh
+        /home/packager/install.sh && \
+        chown -R nginx:nginx /var/lib/nginx/ && \
+        rm -rf /var/cache/apk/*
 
 # Define mountable directories.
 VOLUME ["/etc/nginx/certs", "/var/log/nginx"]
