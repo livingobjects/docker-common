@@ -17,3 +17,8 @@ Based on jre8 neo4j launched and listening on port 7474 VOLUME: /opt/neo4j/data/
 
 ### 2016-01-28
 * First OSS release
+
+### 2016-04-21
+ * Update neo4j-lo-extension
+ * remove cosmos-shared dependency
+ * rollback to 2.3.2 due to a bug in 2.3.3
