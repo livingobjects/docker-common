@@ -1,7 +1,6 @@
 FROM livingobjects/base:3.3_1
-
-ENV JAVA_VERSION=8u77 \
-    JAVA_BUILD_VERSION=8u77-b03
+ENV JAVA_VERSION=8u91 \
+    JAVA_BUILD_VERSION=8u91-b14
 
 # Install glibc 2.21 Oracle Java Dependency
 COPY glibc-2.21-r2.apk /tmp/glibc-2.21-r2.apk
