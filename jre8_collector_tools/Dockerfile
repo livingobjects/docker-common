@@ -1,8 +1,7 @@
 FROM livingobjects/jre8:8u77
 
 # Update dependency
-RUN chmod +x /usr/bin/run-one && \
-    apk --update add tcpdump net-snmp-tools libcap findutils coreutils && \
+RUN apk --update add tcpdump net-snmp-tools libcap findutils coreutils && \
 
     # Add capacity for non root users to access tcpdump
     addgroup pcap  && \
@@ -15,6 +14,12 @@ RUN chmod +x /usr/bin/run-one && \
 #    setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump  && \
     ln -s /usr/sbin/tcpdump /usr/local/bin/tcpdump  && \
 
+    # add gcc-libs for jav8 (latest v8 javascript engine)
+    apk add -U xz curl tar && \
+    curl -Ls https://www.archlinux.org/packages/core/x86_64/gcc-libs/download > /tmp/gcc-libs.tar.gz && mkdir /usr/libgcc && tar -xvf /tmp/gcc-libs.tar.gz -C /usr/libgcc && \
+    echo /usr/libgcc/usr/lib >> /etc/ld.so.conf && \
+    /usr/glibc/usr/bin/ldconfig && \
+    apk del --purge xz curl tar && \
 
     # Add sudo without password for docker with AUFS
     apk add sudo && \
