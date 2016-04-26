@@ -23,7 +23,7 @@ RUN apk --update add tcpdump net-snmp-tools libcap findutils coreutils && \
 
     # Add sudo without password for docker with AUFS
     apk add sudo && \
-    rm -rf /var/cache/apk/* && \
+    rm -rf /var/cache/apk/* /tmp/* && \
     echo 'lo-daemon  ALL=(ALL)       NOPASSWD: /usr/sbin/tcpdump' >> /etc/sudoers && \
     visudo -c -x /etc/sudoers
 
