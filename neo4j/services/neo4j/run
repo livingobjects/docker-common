@@ -1,4 +1,4 @@
 #!/bin/bash
 NEO4J_HOME=/opt/neo4j/
 find ${NEO4J_HOME} ! -user lo-daemon -exec chown lo-daemon. {} \;
-exec -c ${NEO4J_HOME}bin/neo4j console >> ${NEO4J_HOME}logs/console.log 2>&1 lo-daemon
+su -c "${NEO4J_HOME}bin/neo4j console >> ${NEO4J_HOME}logs/console.log 2>&1" lo-daemon
