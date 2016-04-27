@@ -1,2 +1,7 @@
 #!/bin/bash
-exec nginx
+
+chown -R lo-daemon. /var/log/nginx/
+chown -R lo-daemon. /var/lib/nginx/
+chown -R lo-daemon. /var/run/
+chown -R lo-daemon. /etc/nginx/
+exec /usr/sbin/nginx >> /var/log/nginx/console.log 2>&1
