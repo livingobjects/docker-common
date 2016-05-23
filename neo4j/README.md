@@ -15,10 +15,11 @@ Based on jre8 neo4j launched and listening on port 7474 VOLUME: /opt/neo4j/data/
 
 ## Changelog
 
+### 2016-05-23
+ * Update neo4j-lo-extension
+
 ### 2016-05-11
  * Update neo4j-lo-extension
-    * Allow import array properties
-    * Allow create cross attribute properties
  
 ### 2016-04-27
  * Update neo4j-lo-extension
