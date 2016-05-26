@@ -9,13 +9,15 @@ Based on jre8
     docker build -t livingobjects/longback-daemon .
     docker push livingobjects/longback-daemon
 
-
 ## Test
 
     docker run -d livingobjects/longback-daemon
 
 ## Changelog
 
+
+### 2016-05-26
+* Archive update osgi-runtime 2.0-SNAPSHOT
 
 ### 2016-01-29
 * First OSS release
