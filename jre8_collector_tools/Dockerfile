@@ -1,7 +1,7 @@
 FROM livingobjects/jre8:8u91
 
 # Update dependency
-RUN apk --update add tcpdump net-snmp-tools libcap findutils coreutils && \
+RUN apk --update add tcpdump net-snmp-tools libcap findutils coreutils conntrack-tools && \
 
     # Add capacity for non root users to access tcpdump
     addgroup pcap  && \
