@@ -15,6 +15,10 @@ Based on jre8 neo4j launched and listening on port 7474 VOLUME: /opt/neo4j/data/
 
 ## Changelog
 
+### 2016-08-30
+ * Release extension to 1.4
+ * Update to neo4j 2.3.6
+
 ### 2016-06-28
  * Release extension to 1.3
 
