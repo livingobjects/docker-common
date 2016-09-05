@@ -1,4 +1,4 @@
-FROM livingobjects/jre8:8u91
+FROM livingobjects/jre8:8u101
 
 # Update dependency
 RUN apk --update add tcpdump net-snmp-tools libcap findutils coreutils conntrack-tools && \
