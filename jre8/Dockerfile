@@ -37,6 +37,9 @@ RUN apk --update add --allow-untrusted /tmp/glibc-2.21-r2.apk && \
             /opt/java/lib/amd64/libjavafx*.so \
             /opt/java/lib/amd64/libjfx*.so && \
 
+# Symlinks to fix issues with error "libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory"
+    ln -s /lib/libc.musl-x86_64.so.1 /usr/lib/libc.musl-x86_64.so.1 && \
+    ln -s /lib/libz.so.1 /usr/lib/libz.so.1 && \
 
 # Set JAVA ENV vars
     echo "export JAVA_HOME=/opt/java" > /etc/profile.d/java_home.sh && \
