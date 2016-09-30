@@ -10,8 +10,8 @@ RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/reposito
 	apk add runit@testing wget bzip2 unzip bash tzdata && \
 
 # Set timezone
-	cp /usr/share/zoneinfo/Europe/Paris /etc/localtime && \
-	echo "Europe/Prague" > /etc/timezone && \
+	cp /usr/share/zoneinfo/UTC /etc/localtime && \
+	echo "Etc/UTC" > /etc/timezone && \
 	apk del tzdata && \
 
 # Create lo-daemon
