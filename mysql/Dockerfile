@@ -20,8 +20,8 @@ RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup && \
 	locale-gen fr_FR.UTF-8 && update-locale LANG=fr_FR.UTF-8 && \
 
 # Set timezone
-	ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime && \
-	echo "Europe/Prague" > /etc/timezone && \
+	ln -sf /usr/share/zoneinfo/UTC /etc/localtime && \
+	echo "Etc/UTC" > /etc/timezone && \
 
 # Create lo-daemon
     groupadd -g 10000 lo-logger && \
