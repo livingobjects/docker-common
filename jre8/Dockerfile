@@ -1,4 +1,4 @@
-FROM livingobjects/base:3.3_1
+FROM livingobjects/base:3.3_2
 ENV JAVA_VERSION=8u101 \
     JAVA_BUILD_VERSION=8u101-b13
 
