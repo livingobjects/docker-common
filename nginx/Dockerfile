@@ -1,4 +1,4 @@
-FROM livingobjects/base:3.3_1
+FROM livingobjects/base:3.3_2
 
 COPY    APKBUILD /home/packager/APKBUILD
 COPY    install.sh /home/packager/install.sh
