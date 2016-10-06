@@ -16,8 +16,8 @@ RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 
 # Set locale
-	echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen && \
-	locale-gen fr_FR.UTF-8 && update-locale LANG=fr_FR.UTF-8 && \
+	echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
+	locale-gen en_US.UTF-8 && update-locale LANG=en_US.UTF-8 && \
 
 # Set timezone
 	ln -sf /usr/share/zoneinfo/UTC /etc/localtime && \
@@ -30,9 +30,8 @@ RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup && \
     gpasswd -a lo-daemon lo-logger
 
 # Set env vars
-ENV LANG=fr_FR.UTF-8 \
-	LANGUAGE=fr_FR:fr \
-	LC_ALL=fr_FR.UTF-8
+ENV LANG=en_US.UTF-8 \
+	LC_ALL=en_US.UTF-8
 
 
 
