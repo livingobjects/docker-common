@@ -14,6 +14,12 @@ VOLUME ["/etc/nginx/certs", "/var/log/nginx"]
 
 # Define working directory.
 RUN rm -rf /etc/nginx/conf.d/*.conf
+
+# Print logs on stdout and stderr
+
+RUN ln -sf /dev/stdout /var/log/nginx/access.log
+RUN ln -sf /dev/stderr /var/log/nginx/error.log
+
 COPY etc /etc/
 
 # Expose ports.
