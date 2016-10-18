@@ -7,6 +7,7 @@ A docker image to centralize logs
 ## Build
 
     docker build -t livingobjects/rsyslog .
+    docker login
     docker push livingobjects/rsyslog
 
 Test :
