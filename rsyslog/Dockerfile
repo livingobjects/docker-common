@@ -6,4 +6,5 @@ RUN apk update && \
     rm -rf /var/cache/apk/*
 
 ADD rsyslog.conf /etc/
+ADD rsyslog.d /etc/
 
