@@ -1,4 +1,4 @@
-# Neo4J
+# Neo4j
 
 [![](https://badge.imagelayers.io/livingobjects/neo4j:latest.svg)](https://imagelayers.io/?images=livingobjects/neo4j:latest 'Get your own badge on imagelayers.io')
 
