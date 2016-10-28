@@ -1,11 +1,5 @@
 #!/bin/bash
 
-mkdir -p /var/lib/nginx/client_body
-mkdir -p /var/lib/nginx/fastcgi
-mkdir -p /var/lib/nginx/proxy
-mkdir -p /var/lib/nginx/scgi
-mkdir -p /var/lib/nginx/uwsgi
-
 chown -R lo-daemon. /var/log/nginx/
 chown -R lo-daemon. /var/lib/nginx/
 chown -R lo-daemon. /var/run/
