@@ -28,7 +28,7 @@ RUN mkdir -p /services/longback-daemon && \
 # Install Wisdom Monitor
     mkdir -p /services/longback-daemon/application/wisdom-monitor/dependencies && \
     tar xzf /archives/wisdom-monitor-application-${WISDOM_MONITOR_APP_VERSION}.tar.gz -C /services/longback-daemon/application/wisdom-monitor/ && \
-    tar xzf /archives/wisdom-monitor-application-deps-${WISDOM_MONITOR_APP_VERSION}.tar.gz -C /services/longback-daemon/application/wisdom-monitor/dependencies && \
+    tar xzf /archives/wisdom-monitor-application-${WISDOM_MONITOR_APP_VERSION}-deps.tar.gz -C /services/longback-daemon/application/wisdom-monitor/dependencies && \
     chown lo-daemon.lo-daemon -R /services/longback-daemon/application/wisdom-monitor/ && \
     rm -rf /archives
 
