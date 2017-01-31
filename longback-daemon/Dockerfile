@@ -1,10 +1,10 @@
 FROM livingobjects/jre8:8u101_1
 
-ENV OSGI_LAUNCHER_VERSION=1.0 \
-    OSGI_RUNTIME_VERSION=2.1-SNAPSHOT \
-    LO_JACKSON_RUNTIME_VERSION=2.4.4 \
-    LO_WISDOM_VERSION=0.9.1_1 \
-    WISDOM_MONITOR_APP_VERSION=0.9.1_1
+ENV OSGI_LAUNCHER_VERSION=2.1 \
+    OSGI_RUNTIME_VERSION=2.1 \
+    LO_JACKSON_RUNTIME_VERSION=2.5 \
+    LO_WISDOM_VERSION=0.9.1_3 \
+    WISDOM_MONITOR_APP_VERSION=0.9.1_4
 
 ADD archives.tar.gz /
 
@@ -27,8 +27,8 @@ RUN mkdir -p /services/longback-daemon && \
 
 # Install Wisdom Monitor
     mkdir -p /services/longback-daemon/application/wisdom-monitor/dependencies && \
-    tar xzf /archives/wisdom-monitor-${WISDOM_MONITOR_APP_VERSION}.tar.gz -C /services/longback-daemon/application/wisdom-monitor/ && \
-    tar xzf /archives/wisdom-monitor-deps-${WISDOM_MONITOR_APP_VERSION}.tar.gz -C /services/longback-daemon/application/wisdom-monitor/dependencies && \
+    tar xzf /archives/wisdom-monitor-application-${WISDOM_MONITOR_APP_VERSION}.tar.gz -C /services/longback-daemon/application/wisdom-monitor/ && \
+    tar xzf /archives/wisdom-monitor-application-deps-${WISDOM_MONITOR_APP_VERSION}.tar.gz -C /services/longback-daemon/application/wisdom-monitor/dependencies && \
     chown lo-daemon.lo-daemon -R /services/longback-daemon/application/wisdom-monitor/ && \
     rm -rf /archives
 
