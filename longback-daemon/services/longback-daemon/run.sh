@@ -93,5 +93,6 @@ done
     ${DBG_OPTION} \
     -Dlogback.configurationFile=conf/logger.xml \
     -Dfelix.config.properties=file:conf/felix.config.properties \
+    -Dgosh.args="--noshutdown -c telnetd start" \
     org.apache.felix.main.Main \
     "$@"
