@@ -11,7 +11,7 @@ RUN apk --update add --allow-untrusted /tmp/glibc-2.21-r2.apk && \
 # Install Java 8
     mkdir /opt && \
     wget -qO- --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
-      http://download.oracle.com/otn-pub/java/jdk/${JAVA_BUILD_VERSION}/jre-${JAVA_VERSION}-linux-x64.tar.gz \
+      http://download.oracle.com/otn-pub/java/jdk/${JAVA_BUILD_VERSION}/e9e7ea248e2c4826b92b3f075a80e441/jre-${JAVA_VERSION}-linux-x64.tar.gz \
         | tar -xzf - -C /opt && \
 
 # Link default java to actual java version
