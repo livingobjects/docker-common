@@ -1,52 +1,30 @@
-FROM debian:8.3
+FROM livingobjects/debian-base:8.7
+
+ENV DEBIAN_FRONTEND noninteractive
+
+ADD mysql-apt-config_0.8.3-1_all.deb /mysql-apt-config_0.8.3-1_all.deb
 
 RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup && \
-	echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache && \
+    echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache && \
     echo "APT::Install-Recommends \"0\";" > /etc/apt/apt.conf.d/no-recommends && \
-	echo "APT::Install-Suggests \"0\";" >> /etc/apt/apt.conf.d/no-recommends && \
-	echo "Dpkg::Options { \"--force-confdef\"; \"--force-confold\"; }" >> /etc/apt/apt.conf.d/local && \
-
-# Install minimal packages
-	export DEBIAN_FRONTEND=noninteractive && \
-	apt-get -y update && \
-	apt-get -y install runit wget bzip2 unzip vim netcat locales && \
-	rm -Rf /etc/sv/* && \
-	apt-get clean && \
-	apt-get autoclean && \
-	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-
-# Set locale
-	echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
-	locale-gen en_US.UTF-8 && update-locale LANG=en_US.UTF-8 && \
-
-# Set timezone
-	ln -sf /usr/share/zoneinfo/UTC /etc/localtime && \
-	echo "Etc/UTC" > /etc/timezone && \
-
-# Create lo-daemon
-    groupadd -g 10000 lo-logger && \
-    groupadd -g 999 lo-daemon && \
-    useradd lo-daemon --uid 999 --gid 999 --system --home /services/ --shell /bin/bash && \
-    gpasswd -a lo-daemon lo-logger
-
-# Set env vars
-ENV LANG=en_US.UTF-8 \
-	LC_ALL=en_US.UTF-8
-
-
-
-ADD mysql-apt-config_0.3.3-2debian7_all.deb /mysql-apt-config_0.3.3-2debian7_all.deb
-RUN export DEBIAN_FRONTEND="noninteractive" && \
-	echo "mysql-apt-config mysql-apt-config/select-product select Server" | debconf-set-selections && \
-	echo "mysql-apt-config mysql-apt-config/select-server select mysql-5.6" | debconf-set-selections && \
-	dpkg -i mysql-apt-config_0.3.3-2debian7_all.deb &&\
-	echo "mysql-server mysql-server/root_password password root" | debconf-set-selections && \
+    echo "APT::Install-Suggests \"0\";" >> /etc/apt/apt.conf.d/no-recommends && \
+    echo "Dpkg::Options { \"--force-confdef\"; \"--force-confold\"; }" >> /etc/apt/apt.conf.d/local && \
+    # MySQL conf
+    echo "mysql-apt-config mysql-apt-config/select-product select Server" | debconf-set-selections && \
+    echo "mysql-apt-config mysql-apt-config/select-server select mysql-5.6" | debconf-set-selections && \
+    echo "mysql-server mysql-server/root_password password root" | debconf-set-selections && \
     echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections && \
-	apt-get -y update && \
-    apt-get -q -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"  install perl-modules mysql-server mysql-client && \
-    rm -rf /var/lib/mysql/* && \ 
-    apt-get clean && \ 
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /mysql-apt-config_0.3.3-2debian7_all.deb
+    apt-get -y update && apt-get install -y --no-install-recommends \
+    lsb-release && \
+    dpkg -i mysql-apt-config_0.8.3-1_all.deb && \
+    apt-get install -y --no-install-recommends \
+    perl-modules \
+    mysql-server \
+    mysql-client && \
+    apt-get autoclean && \
+    apt-get clean && \
+    apt-get autoremove && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /mysql-apt-config_0.3.3-2debian7_all.deb /var/lib/mysql/
 
 # Add MySQL configuration
 ADD mysql/ /etc/mysql/
