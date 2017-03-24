@@ -8,7 +8,7 @@ RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/reposito
 
 # Install minimal packages
 	apk update && \
-	apk add runit@community wget bzip2 unzip bash tzdata && \
+	apk add --no-cache runit@community wget bzip2 unzip bash tzdata && \
 
 # Set timezone
 	cp /usr/share/zoneinfo/UTC /etc/localtime && \
@@ -16,6 +16,7 @@ RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/reposito
 	apk del tzdata && \
 
 # Create lo-daemon
+    delgroup ping
     addgroup -g 999 lo-daemon && \
     adduser lo-daemon -D -u 999 -G lo-daemon -S -h /services/ -s /bin/bash && \
 
