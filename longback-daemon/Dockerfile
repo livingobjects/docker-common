@@ -1,4 +1,4 @@
-FROM livingobjects/jre8:8u121
+FROM livingobjects/jre8:8u121_1
 
 ENV OSGI_LAUNCHER_VERSION=2.1 \
     OSGI_RUNTIME_VERSION=2.1 \

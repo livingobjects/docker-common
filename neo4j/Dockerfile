@@ -1,4 +1,4 @@
-FROM livingobjects/jre8:8u121
+FROM livingobjects/jre8:8u121_1
 
 ENV NEO4J_VERSION 2.3.6
 
