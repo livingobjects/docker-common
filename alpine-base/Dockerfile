@@ -16,7 +16,7 @@ RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/reposito
 	apk del tzdata && \
 
 # Create lo-daemon
-    delgroup ping
+    delgroup ping && \
     addgroup -g 999 lo-daemon && \
     adduser lo-daemon -D -u 999 -G lo-daemon -S -h /services/ -s /bin/bash && \
 
