@@ -1,4 +1,4 @@
-FROM livingobjects/base:3.3_2
+FROM livingobjects/alpine-base:3.3
 ENV JAVA_VERSION=8u121 \
     JAVA_BUILD_VERSION=8u121-b13
 
