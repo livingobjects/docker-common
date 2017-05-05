@@ -1,4 +1,4 @@
-FROM livingobjects/jre8:8u121_1
+FROM livingobjects/jre8:8u121_3
 
 ENV OSGI_LAUNCHER_VERSION=2.1 \
     OSGI_RUNTIME_VERSION=2.1 \
@@ -24,14 +24,12 @@ RUN mkdir -p /services/longback-daemon && \
     mkdir -p /services/longback-daemon/runtime/wisdom && \
     tar xzf /archives/lo-wisdom-runtime-${LO_WISDOM_VERSION}.tar.gz -C /services/longback-daemon/runtime/wisdom && \
 
-
 # Install Wisdom Monitor
     mkdir -p /services/longback-daemon/application/wisdom-monitor/dependencies && \
     tar xzf /archives/wisdom-monitor-application-${WISDOM_MONITOR_APP_VERSION}.tar.gz -C /services/longback-daemon/application/wisdom-monitor/ && \
     tar xzf /archives/wisdom-monitor-application-${WISDOM_MONITOR_APP_VERSION}-deps.tar.gz -C /services/longback-daemon/application/wisdom-monitor/dependencies && \
     chown lo-daemon.lo-daemon -R /services/longback-daemon/application/wisdom-monitor/ && \
     rm -rf /archives
-
 
 # Parameterize environment
 COPY services /services
