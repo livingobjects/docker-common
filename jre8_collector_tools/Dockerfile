@@ -1,4 +1,4 @@
-FROM livingobjects/jre8:8u121_2
+FROM livingobjects/jre8:8u121_3
 
 # Update dependency
 RUN apt-get -y update && apt-get install -y --no-install-recommends \
