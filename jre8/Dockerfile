@@ -1,12 +1,6 @@
-FROM livingobjects/alpine-base:3.3
+FROM livingobjects/debian-base:8.7
 ENV JAVA_VERSION=8u121 \
     JAVA_BUILD_VERSION=8u121-b13
-
-# Install glibc 2.21 Oracle Java Dependency
-COPY glibc-2.21-r2.apk /tmp/glibc-2.21-r2.apk
-RUN apk --update add --allow-untrusted /tmp/glibc-2.21-r2.apk && \
-    rm -f /tmp/glibc-2.21-r2.apk && \
-    rm -rf /var/cache/apk/* && \
 
 # Install Java 8
     mkdir /opt && \
@@ -37,10 +31,6 @@ RUN apk --update add --allow-untrusted /tmp/glibc-2.21-r2.apk && \
             /opt/java/lib/amd64/libjavafx*.so \
             /opt/java/lib/amd64/libjfx*.so && \
 
-# Symlinks to fix issues with error "libc.musl-x86_64.so.1: cannot open shared object file: No such file or directory"
-    ln -s /lib/libc.musl-x86_64.so.1 /usr/lib/libc.musl-x86_64.so.1 && \
-    ln -s /lib/libz.so.1 /usr/lib/libz.so.1 && \
-
 # Set JAVA ENV vars
-    echo "export JAVA_HOME=/opt/java" > /etc/profile.d/java_home.sh && \
-    echo "export PATH=$PATH:/opt/java/bin" >> /etc/profile.d/java_home.sh
+    echo "export JAVA_HOME=/opt/java" >> /etc/profile && \
+    echo "export PATH=$PATH:/opt/java/bin" >> /etc/profile
