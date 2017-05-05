@@ -1,6 +1,6 @@
 FROM debian:8.7
 
-ENV DEBIAN_FRONTED=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 ADD run-one /usr/bin/run-one
 
