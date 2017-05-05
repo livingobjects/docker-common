@@ -1,4 +1,4 @@
-FROM livingobjects/debian-base:8.7
+FROM livingobjects/debian-base:8.7_1
 ENV JAVA_VERSION=8u121 \
     JAVA_BUILD_VERSION=8u121-b13
 
