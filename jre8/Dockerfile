@@ -3,8 +3,7 @@ ENV JAVA_VERSION=8u121 \
     JAVA_BUILD_VERSION=8u121-b13
 
 # Install Java 8
-    mkdir /opt && \
-    wget -qO- --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
+RUN wget -qO- --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
       http://download.oracle.com/otn-pub/java/jdk/${JAVA_BUILD_VERSION}/e9e7ea248e2c4826b92b3f075a80e441/jre-${JAVA_VERSION}-linux-x64.tar.gz \
         | tar -xzf - -C /opt && \
 
