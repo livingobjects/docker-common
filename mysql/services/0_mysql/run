@@ -18,4 +18,4 @@ else
 	echo "=> Using an existing volume of MySQL"
 fi
 
-exec mysqld > /var/log/mysql/sdtout.log 2>&1
+su -c "exec /usr/sbin/mysqld > /var/log/mysql/sdtout.log 2>&1" lo-daemon
