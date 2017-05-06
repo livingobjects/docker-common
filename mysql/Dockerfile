@@ -2,13 +2,13 @@ FROM livingobjects/debian-base:8.7_1
 
 ADD mysql-apt-config_0.3.3-2debian7_all.deb /mysql-apt-config_0.3.3-2debian7_all.deb
 
-RUN apt-get -y update && \
-    apt-get install -y lsb-release && \
-    echo "mysql-apt-config mysql-apt-config/select-product select Server" | debconf-set-selections && \
+RUN echo "mysql-apt-config mysql-apt-config/select-product select Server" | debconf-set-selections && \
     echo "mysql-apt-config mysql-apt-config/select-server select mysql-5.6" | debconf-set-selections && \
     dpkg -i mysql-apt-config_0.3.3-2debian7_all.deb && \
     echo "mysql-server mysql-server/root_password password root" | debconf-set-selections && \
     echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections && \
+    apt-key adv --keyserver pgp.mit.edu --recv-keys A4A9406876FCBD3C456770C88C718D3B5072E1F5 && \
+    apt-get -y update && \
     apt-get -q -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"  install perl-modules mysql-server mysql-client && \
     apt-get autoclean && \
     apt-get clean && \
