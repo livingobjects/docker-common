@@ -1,1 +1,1 @@
-docker build -t docker.livingobjects.com/debian-base:8.7 .
+docker build -t livingobjects/debian-base:8.7 .
