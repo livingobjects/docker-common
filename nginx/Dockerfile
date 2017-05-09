@@ -3,7 +3,7 @@ FROM livingobjects/debian-base:8.7_1
 # Based on https://github.com/nginxinc/docker-nginx
 
 # Docker Build Arguments
-ARG NGINX_VERSION="1.11.8"
+ARG NGINX_VERSION="1.12.0"
 ARG CONFIG_OPTIONS="\
     --prefix=/etc/nginx \
 	--sbin-path=/usr/sbin/nginx \
