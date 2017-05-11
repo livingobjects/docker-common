@@ -15,6 +15,8 @@ Based on jre8
 
 ## Changelog
 
+### 2017-05-05 - Version : longback-daemon_1.0_15
+* Switch to debian-base : jr8 version : jre8_8u121_3
 
 ### 2016-05-26
 * Archive update osgi-runtime 2.0-SNAPSHOT

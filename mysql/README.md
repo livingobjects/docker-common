@@ -4,6 +4,11 @@
 
 Mysql 5.6 debian based
 
+## Changelog
+
+### 2017-05-05 - Version : mysql_5.6_9
+* Switch to debian-base:8.7_1
+
 ## Configuration
 
  * PORTS : [ `3306` ]

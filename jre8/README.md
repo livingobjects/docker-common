@@ -18,5 +18,8 @@ Based on livingobjects/base we add a JRE
 
 ## Changelog
 
+### 2017-05-05 - Version : jre8_8u121_3
+* Switch to debian-base:8.7_1
+
 ### 2016-01-28
  * First OSS release

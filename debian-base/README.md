@@ -1,1 +1,2 @@
-docker build -t livingobjects/debian-base:8.7 .
+### 2017-05-05 - Version : 8.7_1
+* New base image on Debian

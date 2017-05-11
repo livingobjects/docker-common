@@ -16,5 +16,8 @@ Based on jre8
 
 ## Changelog
 
+### 2017-05-05 - Version : jre8_collector_tools_8u121_2
+* Switch to debian-base : jr8 version : jre8_8u121_3
+
 ### 2016-01-28
  * Initial OSS release
