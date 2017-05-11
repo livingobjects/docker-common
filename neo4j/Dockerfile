@@ -1,4 +1,4 @@
-FROM livingobjects/jre8:8u101_1
+FROM livingobjects/jre8:8u121_3
 
 ENV NEO4J_VERSION 2.3.6
 
@@ -14,7 +14,6 @@ RUN wget --content-disposition http://neo4j.com/artifact.php\?name\=neo4j-commun
 # Chown all
     mkdir -p /opt/neo4j/logs/ && \
     chown lo-daemon. -R /opt/neo4j/
-
 
 # Install services
 ADD services /etc/sv
