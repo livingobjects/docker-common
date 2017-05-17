@@ -11,13 +11,17 @@ RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup && \
     echo "Dpkg::Options { \"--force-confdef\"; \"--force-confold\"; }" >> /etc/apt/apt.conf.d/local && \
 # Install minimal packages
     apt-get -y update && apt-get install -y --no-install-recommends \
+    sudo \
     vim \
     runit \
     wget \
     bzip2 \
     unzip \
     netcat \
-    locales && \
+    locales \
+    ca-certificates \
+    telnet \
+    curl && \
     apt-get autoclean && \
     apt-get clean && \
     apt-get autoremove && \

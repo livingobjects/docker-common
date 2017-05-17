@@ -4,7 +4,6 @@ FROM livingobjects/jre8:8u121_3
 RUN apt-get -y update && apt-get install -y --no-install-recommends \
     tcpdump \
     snmp \
-    sudo && \
     apt-get autoclean && \
     apt-get clean && \
     apt-get autoremove && \
