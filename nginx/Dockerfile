@@ -1,4 +1,4 @@
-FROM livingobjects/debian-base:8.7_1
+FROM livingobjects/debian-base:8.7_2
 
 # Based on https://github.com/nginxinc/docker-nginx
 

@@ -15,6 +15,9 @@ Based on jre8
 
 ## Changelog
 
+### 2017-05-17 - Version : longback-daemon_1.0_16
+* New debian-base
+
 ### 2017-05-05 - Version : longback-daemon_1.0_15
 * Switch to debian-base : jr8 version : jre8_8u121_3
 

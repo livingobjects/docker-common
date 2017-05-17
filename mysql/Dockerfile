@@ -1,4 +1,4 @@
-FROM livingobjects/debian-base:8.7_1
+FROM livingobjects/debian-base:8.7_2
 
 ADD mysql-apt-config_0.3.3-2debian7_all.deb /mysql-apt-config_0.3.3-2debian7_all.deb
 

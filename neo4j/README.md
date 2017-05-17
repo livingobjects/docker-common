@@ -15,6 +15,9 @@ Based on jre8 neo4j launched and listening on port 7474 VOLUME: /opt/neo4j/data/
 
 ## Changelog
 
+### 2017-05-17 - Version : neoj_2.3.6_34
+* New debian-base
+
 ### 2017-05-05 - Version : neoj_2.3.6_33
 * Switch to debian-base:8.7_1
 
