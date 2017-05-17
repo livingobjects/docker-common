@@ -1,7 +1,7 @@
 FROM livingobjects/jre8:8u121_4
 
 # Update dependency
-RUN apt-get -y update && apt-get install -y --no-install-recommends \ &&
+RUN apt-get -y update && apt-get install -y --no-install-recommends \
     tcpdump \
     snmp \ &&
     apt-get autoclean && \
