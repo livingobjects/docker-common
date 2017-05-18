@@ -9,7 +9,7 @@ ARG NGINX_KEY="ABF5BD827BD9BF62"
 RUN echo "deb http://nginx.org/packages/debian/ jessie nginx" >> /etc/apt/sources.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $NGINX_KEY && \
     apt-get -y update && apt-get install -y --no-install-recommends \
-	nginx=$NGINX_VERSION \ && \
+	nginx=$NGINX_VERSION && \
 	rm -rf /etc/nginx/conf.d/*.conf && \
 	apt-get autoclean && \
     apt-get clean && \
