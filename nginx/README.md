@@ -6,6 +6,9 @@ Simple Nginx
 
 ## Changelog
 
+### 2017-06-29 - Version : nginx_1.12.0_4
+* Custom nginx build with auth_request_redirect patch
+
 ### 2017-05-05 - Version : nginx_1.12.0_2
 * New debian base
 
