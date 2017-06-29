@@ -1,0 +1,29 @@
+From 5af2f1edfa7bd3ec8dac062450ce77d6b79f5747 Mon Sep 17 00:00:00 2001
+From: Guillaume d'Eimar de Jabrun <guillaume.jabrun@livingobjects.com>
+Date: Thu, 29 Jun 2017 11:20:06 +0200
+Subject: [PATCH] auth_request: support redirect
+
+---
+ src/http/modules/ngx_http_auth_request_module.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/src/http/modules/ngx_http_auth_request_module.c b/src/http/modules/ngx_http_auth_request_module.c
+index bab79e4..9176af0 100644
+--- a/src/http/modules/ngx_http_auth_request_module.c
++++ b/src/http/modules/ngx_http_auth_request_module.c
+@@ -167,6 +167,12 @@ ngx_http_auth_request_handler(ngx_http_request_t *r)
+             return NGX_OK;
+         }
+ 
++        if (ctx->status >= NGX_HTTP_SPECIAL_RESPONSE
++            && ctx->status < NGX_HTTP_BAD_REQUEST)
++        {
++            return ctx->status;
++        }
++
+         ngx_log_error(NGX_LOG_ERR, r->connection->log, 0,
+                       "auth request unexpected status: %ui", ctx->status);
+ 
+-- 
+2.9.3
+
