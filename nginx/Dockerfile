@@ -46,6 +46,8 @@ ARG CONFIG_OPTIONS="\
 
 ARG BUILD_DEPS="binutils bsdmainutils build-essential cpp cpp-4.9 debhelper diffstat dpkg-dev file g++ g++-4.9 gcc gcc-4.9 gettext gettext-base groff-base intltool-debian libasan1 libasprintf0c2 libatomic1 libc-dev-bin libc6-dev libcilkrts5 libcloog-isl4 libcroco3 libdpkg-perl libexpat1 libgcc-4.9-dev libgdbm3 libgomp1 libisl10 libitm1 liblsan0 libmagic1 libmpc3 libmpfr4 libpcre3-dev libpcrecpp0 libpipeline1 libpython-stdlib libpython2.7-minimal libpython2.7-stdlib libquadmath0 libsqlite3-0 libssl-dev libstdc++-4.9-dev libtimedate-perl libtsan0 libubsan0 libunistring0 linux-libc-dev lsb-release make man-db mime-support patch perl perl-modules po-debconf python python-minimal python2.7 python2.7-minimal quilt xz-utils zlib1g-dev"
 
+ADD auth_request_redirect.patch /usr/src/nginx-${NGINX_VERSION}/
+
 RUN apt-get update \
     && apt-get install -y ${BUILD_DEPS} \
     && curl -fSL http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz -o nginx.tar.gz \
@@ -57,7 +59,6 @@ RUN apt-get update \
 	&& mkdir -p /usr/src \
 	&& tar -zxC /usr/src -f nginx.tar.gz \
 	&& rm nginx.tar.gz \
-    && auth_request_redirect.patch /usr/src/nginx-${NGINX_VERSION}/ \
     && cd /usr/src/nginx-${NGINX_VERSION} \
     && patch -p1 < auth_request_redirect.patch \
     && ./configure ${CONFIG_OPTIONS} --with-debug \
