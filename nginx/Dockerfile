@@ -81,7 +81,7 @@ RUN apt-get update \
 
 	# Define working directory.
 	&& rm -rf /etc/nginx/conf.d/*.conf \
-    && apt-get purge -y ${BUILD_DEPS}
+    && apt-get purge -y ${BUILD_DEPS} \
     && rm -rf /tmp/* /var/tmp/* \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
