@@ -17,7 +17,7 @@
   limitations under the License.
   #L%
   -->
-<configuration>
+<configuration scan="true" scanPeriod="60 seconds" >
     <!-- Allow application to define exra loggers -->
     <include optional="true" file="conf/logger-extras.xml"/>
 
