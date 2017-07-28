@@ -22,4 +22,4 @@ ADD services /etc/sv
 EXPOSE 7474
 
 # Expose our data volumes
-VOLUME ["/opt/neo4j/data/graph.db"]
+VOLUME ["/opt/neo4j/data/graph.db", "/opt/neo4j/logs"]

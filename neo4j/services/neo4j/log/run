@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mkdir -p /opt/neo4j/logs && chown -R lo-daemon: /opt/neo4j/logs
+exec chpst -u lo-daemon svlogd -tt /opt/neo4j/logs
