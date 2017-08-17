@@ -13,7 +13,7 @@ RUN echo "mysql-apt-config mysql-apt-config/select-product select Server" | debc
     apt-get autoclean && \
     apt-get clean && \
     apt-get autoremove && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /mysql-apt-config_0.3.3-2debian7_all.deb /var/lib/mysql/*
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /mysql-apt-config_0.3.3-2debian7_all.deb /var/lib/mysql/* /var/log/mysql/*
 
 # Add MySQL configuration
 ADD mysql/ /etc/mysql/

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mkdir -p /var/log/mysql && chown -R lo-daemon: /var/log/mysql
+exec chpst -u lo-daemon svlogd -tt /var/log/mysql

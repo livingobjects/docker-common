@@ -1,4 +1,7 @@
 #!/bin/bash
+
+exec 2>&1
+
 VOLUME_HOME="/var/lib/mysql"
 find ${VOLUME_HOME} ! -user lo-daemon -exec chown lo-daemon. {} \;
 find /var/log/mysql ! -user lo-daemon -exec chown lo-daemon. {} \;
@@ -7,7 +10,7 @@ chown -R lo-daemon. /var/run/mysqld/
 if [[ ! -d ${VOLUME_HOME}/mysql ]]; then
 	echo "=> An empty or uninitialized MySQL volume is detected in ${VOLUME_HOME}"
 	echo "=> Installing MySQL ..."
-	mysql_install_db > /dev/null 2>&1
+	mysql_install_db
 	echo "=> Done!"
 
 	if [ -f /create_mysql_admin_user.sh ]; then
@@ -18,4 +21,4 @@ else
 	echo "=> Using an existing volume of MySQL"
 fi
 
-su -c "exec /usr/sbin/mysqld > /var/log/mysql/sdtout.log 2>&1" lo-daemon
+exec chpst -u lo-daemon /usr/sbin/mysqld --console
