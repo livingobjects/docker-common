@@ -6,6 +6,9 @@ Mysql 5.6 debian based
 
 ## Changelog
 
+### 2017-05-17 - Version : mysql_5.6_11
+* Update log policy to have rolling log files
+
 ### 2017-05-17 - Version : mysql_5.6_10
 * New debian-base
 
