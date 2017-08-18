@@ -9,8 +9,8 @@ ARG CONFIG_OPTIONS="\
 	--sbin-path=/usr/sbin/nginx \
 	--modules-path=/usr/lib/nginx/modules \
 	--conf-path=/etc/nginx/nginx.conf \
-	--error-log-path=/var/log/nginx/error.log \
-	--http-log-path=/var/log/nginx/access.log \
+	--error-log-path=/dev/stderr \
+	--http-log-path=/dev/stdout \
 	--pid-path=/var/run/nginx.pid \
 	--lock-path=/var/run/nginx.lock \
 	--http-client-body-temp-path=/var/cache/nginx/client_temp \
@@ -49,7 +49,7 @@ ARG BUILD_DEPS="binutils bsdmainutils build-essential cpp cpp-4.9 debhelper diff
 ADD auth_request_redirect.patch /usr/src/nginx-${NGINX_VERSION}/
 
 RUN apt-get update \
-    && apt-get install -y ${BUILD_DEPS} \
+    && apt-get install -y cron gzip ${BUILD_DEPS} \
     && curl -fSL http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz -o nginx.tar.gz \
     && curl -fSL http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz.asc  -o nginx.tar.gz.asc \
     && export GNUPGHOME="$(mktemp -d)" \
@@ -77,14 +77,13 @@ RUN apt-get update \
 	&& ln -s ../../usr/lib/nginx/modules /etc/nginx/modules \
 	&& strip /usr/sbin/nginx* \
 	&& rm -rf /usr/src/nginx-${NGINX_VERSION} \
-    && ln -sf /dev/stdout /var/log/nginx/access.log \
-	&& ln -sf /dev/stderr /var/log/nginx/error.log \
 
 	# Define working directory.
 	&& rm -rf /etc/nginx/conf.d/*.conf \
     && apt-get purge -y ${BUILD_DEPS} \
-    && rm -rf /tmp/* /var/tmp/* \
+    && apt-get autoremove -y \
     && apt-get clean \
+    && rm -rf /tmp/* /var/tmp/* \
     && rm -rf /var/lib/apt/lists/*
 
 # Define mountable directories.

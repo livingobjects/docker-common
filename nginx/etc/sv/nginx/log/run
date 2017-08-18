@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mkdir -p /var/log/nginx && chown -R lo-daemon: /var/log/nginx
+exec chpst -u lo-daemon svlogd -tt /var/log/nginx
