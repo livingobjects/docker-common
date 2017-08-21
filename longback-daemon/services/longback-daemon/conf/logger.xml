@@ -24,11 +24,9 @@
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>logs/info.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- daily rollover -->
-            <fileNamePattern>logs/wisdom.%d{yyyy-MM-dd}.log</fileNamePattern>
-
-            <!-- keep 1 days' worth of history -->
-            <maxHistory>5</maxHistory>
+            <fileNamePattern>logs/wisdom.%d{yyyy-MM-dd}.log.gz</fileNamePattern> <!-- daily rollover -->
+            <maxHistory>10</maxHistory> <!-- keep 1 days' worth of history -->
+            <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
 
         <encoder>
@@ -40,17 +38,12 @@
         <appender-ref ref="FILE" />
     </appender>
 
-    <root level="info" additivity="false">
+    <root level="WARN" additivity="false">
         <appender-ref ref="STDOUT"/>
-        <!-- If you prefer using the FILE appender directly, replace "ASYNC" by "FILE"  -->
-        <appender-ref ref="ASYNC"/>
+        <appender-ref ref="ASYNC"/> <!-- If you prefer using the FILE appender directly, replace "ASYNC" by "FILE"  -->
     </root>
 
     <!-- Logger configuration -->
-    <logger name="ch.qos.logback" level="WARN"/>
-    <logger name="net.sf.ehcache" level="WARN"/>
-    <logger name="org.apache" level="WARN"/>
-    <logger name="org.hibernate.validator" level="WARN"/>
-    <logger name="org.thymeleaf" level="WARN"/>
+    <logger name="com.livingobjects" level="INFO"/>
 
 </configuration>
