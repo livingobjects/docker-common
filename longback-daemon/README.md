@@ -15,6 +15,9 @@ Based on jre8
 
 ## Changelog
 
+### 2017-08-21 - Version : longback-daemon_1.0_18
+* Improve logger configuration
+
 ### 2017-05-17 - Version : longback-daemon_1.0_16
 * New debian-base
 
