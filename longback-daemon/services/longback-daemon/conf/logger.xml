@@ -18,8 +18,6 @@
   #L%
   -->
 <configuration scan="true" scanPeriod="60 seconds" >
-    <!-- Allow application to define exra loggers -->
-    <include optional="true" file="conf/logger-extras.xml"/>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>logs/info.log</file>
@@ -45,5 +43,9 @@
 
     <!-- Logger configuration -->
     <logger name="com.livingobjects" level="INFO"/>
+    <logger name="com.livingobjects.longback.core.internal.log" level="ERROR"/>
+
+    <!-- Allow application to define exra loggers -->
+    <include optional="true" file="conf/logger-extras.xml"/>
 
 </configuration>
