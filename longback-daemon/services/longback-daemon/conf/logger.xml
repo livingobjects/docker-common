@@ -20,7 +20,7 @@
         <appender-ref ref="FILE"/>
     </appender>
 
-    <root level="TRACE" additivity="false">
+    <root level="WARN" additivity="false">
         <appender-ref ref="ASYNC"/> <!-- If you prefer using the FILE appender directly, replace "ASYNC" by "FILE"  -->
     </root>
 
