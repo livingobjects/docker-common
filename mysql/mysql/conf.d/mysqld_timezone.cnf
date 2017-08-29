@@ -1,2 +1,2 @@
-[mysqld]
+[mysqld_safe]
 timezone='UTC'
