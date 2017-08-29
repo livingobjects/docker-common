@@ -15,6 +15,9 @@ Based on jre8
 
 ## Changelog
 
+### 2017-08-29 - Version : longback-daemon_1.0_22
+* logger : rename achived logs from wisdom to info
+
 ### 2017-08-21 - Version : longback-daemon_1.0_18
 * Improve logger configuration
 
