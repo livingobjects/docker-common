@@ -39,7 +39,3 @@ RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup && \
 
 ENV LANG=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8
-
-USER lo-daemon
-
-CMD ["/usr/bin/runsvdir", "-P", "/etc/sv"]
