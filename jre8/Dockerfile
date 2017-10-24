@@ -1,10 +1,10 @@
 FROM livingobjects/debian-base:9.2
-ENV JAVA_VERSION=8u121 \
-    JAVA_BUILD_VERSION=8u121-b13
+ENV JAVA_VERSION=8u152 \
+    JAVA_BUILD_VERSION=8u152-b16
 
 # Install Java 8
 RUN wget -qO- --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
-      http://download.oracle.com/otn-pub/java/jdk/${JAVA_BUILD_VERSION}/e9e7ea248e2c4826b92b3f075a80e441/jre-${JAVA_VERSION}-linux-x64.tar.gz \
+      http://download.oracle.com/otn-pub/java/jdk/${JAVA_BUILD_VERSION}/aa0333dd3019491ca4f6ddbe78cdb6d0/jre-${JAVA_VERSION}-linux-x64.tar.gz \
         | tar -xzf - -C /opt && \
 
 # Link default java to actual java version
