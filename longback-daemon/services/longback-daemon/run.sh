@@ -41,9 +41,9 @@ if test "$1" = "status"; then
 fi
 
 if test "$1" = "clean-all"; then
-  rm -rf .config-admin
-  rm -rf felix-cache
-  rm -rf logs
+  rm -rf "${dir}/.config-admin"
+  rm -rf "${dir}/felix-cache"
+  rm -rf "${dir}/logs"
   if [ $# -ne 1 ]
   then
    shift
@@ -86,6 +86,10 @@ for i in `ls ./bin/*.jar`
 do
   CLASSPATH=${CLASSPATH}:${i}
 done
+
+# Clean bundle cache and config-admin files
+rm -rf "${dir}/.config-admin"
+rm -rf "${dir}/felix-cache"
 
 "$JAVA" \
     -cp ${CLASSPATH} \
