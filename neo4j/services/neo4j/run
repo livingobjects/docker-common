@@ -1,4 +1,4 @@
 #!/bin/bash
 
-find /opt/neo4j ! -user lo-daemon -exec chown lo-daemon. {} \;
+find /opt/neo4j/ ! -user lo-daemon -exec chown lo-daemon. {} \;
 exec chpst -u lo-daemon /opt/neo4j/bin/neo4j console
