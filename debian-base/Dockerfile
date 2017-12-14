@@ -1,4 +1,4 @@
-FROM debian:8.7
+FROM debian:9.2
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -34,10 +34,8 @@ RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup && \
     echo "Etc/UTC" > /etc/timezone && \
 # Create lo-daemon
     groupadd -g 999 lo-daemon && \
-    useradd lo-daemon --uid 999 --gid 999 --system --home /services/ --shell /bin/bash && \
+    useradd lo-daemon --uid 999 --gid 999 --system --home /app/ --shell /bin/bash && \
     gpasswd -a lo-daemon lo-daemon
 
 ENV LANG=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8
-
-CMD ["/usr/bin/runsvdir", "-P", "/etc/sv"]
