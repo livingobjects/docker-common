@@ -49,7 +49,7 @@ ARG BUILD_DEPS="binutils bsdmainutils build-essential cpp cpp-4.9 debhelper diff
 ADD auth_request_redirect.patch /usr/src/nginx-${NGINX_VERSION}/
 
 RUN apt-get update \
-    && apt-get install -y cron gzip ${BUILD_DEPS} \
+    && apt-get install -y logrotate cron gzip ${BUILD_DEPS} \
     && curl -fSL http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz -o nginx.tar.gz \
     && curl -fSL http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz.asc  -o nginx.tar.gz.asc \
     && export GNUPGHOME="$(mktemp -d)" \
